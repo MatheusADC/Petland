@@ -14,22 +14,15 @@ import com.petland.repository.CadastroRepository;
 public class StartApp implements ApplicationRunner {
 
     @Autowired
-    private CadastroRepository repository;
+    private AnimalRepository repository;
     
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Cadastro matheus = new Cadastro();
-        matheus.setNome("Matheus");
+        Animal garfield = new Animal();
+        garfield.setNome("Garfield");
+        garfield.setAniversario(LocalDate.of(1978, 06, 19));
+        garfield.setEspecie(AnimalEspecie.GATO);
 
-        Perfil perfil = new Perfil();
-        perfil.setCliente(true);
-        matheus.setPerfil(perfil);
-
-        Endereco endereco = new Endereco();
-        endereco.setLogradouro("Rua das Flores");
-        endereco.setNumero("123");
-        matheus.setEndereco(endereco);
-
-        repository.save(matheus);
+        repository.save(garfield);
     }
 }
