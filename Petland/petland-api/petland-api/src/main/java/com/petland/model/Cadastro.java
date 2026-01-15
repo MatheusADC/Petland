@@ -21,6 +21,7 @@ public class Cadastro {
     @Setter(AccessLevel.NONE)
     private Integer id;
     
+    @Column(length = 50, nullable = false)
     private String nome;
 
     @Embedded
